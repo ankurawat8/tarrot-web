@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Testimonial Slider</title>
+    <link rel="stylesheet" href="testimonial.css" />
+    <style>
+      /* Add your custom styles here */
+      .testimonial-slider-container {
+        width: 80%;
+        margin: auto;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .testimonial-slider {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+      }
+
+      .testimonial-slide {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="testimonial-slider-container">
+      <div class="testimonial-slider">
+        <div class="testimonial-slide">hello</div>
+        <div class="testimonial-slide">hii</div>
+        <div class="testimonial-slide">hii</div>
+      </div>
+      <div class="testimonial-slider">
+        <div class="testimonial-slide">hello</div>
+        <div class="testimonial-slide">hii</div>
+        <div class="testimonial-slide">hii</div>
+      </div>
+    </div>
+
+    <script>
+      const slider = document.querySelector(".testimonial-slider");
+      let currentIndex = 0;
+      const totalSlides =
+        document.querySelectorAll(".testimonial-slide").length;
+
+      function nextSlide() {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateSlider();
+      }
+
+      function updateSlider() {
+        const newPosition = -currentIndex * 100 + "%";
+        slider.style.transform = "translateX(" + newPosition + ")";
+      }
+
+      setInterval(nextSlide, 5000); // Change slide every 5 seconds
+    </script>
+  </body>
+</html>
